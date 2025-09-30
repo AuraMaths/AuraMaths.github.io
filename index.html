@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Trebuchet MS', sans-serif;
-      background: linear-gradient(135deg, #e9e3ff, #f8f7ff);
+      background: linear-gradient(135deg, #f6f3ff, #eae6ff);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -18,7 +18,7 @@
 
     header {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 60px;
     }
 
     header h1 {
@@ -28,50 +28,51 @@
     }
 
     header p {
-      font-size: 20px;
+      font-size: 22px;
       color: #444;
-      margin: 10px 0 40px;
+      margin: 15px 0 60px;
     }
 
     .container {
       display: flex;
-      gap: 60px;
-      margin-top: 40px;
+      flex-wrap: wrap;
+      gap: 50px;
+      justify-content: center;
     }
 
-    .box {
+    .card {
       background: white;
-      padding: 40px;
-      border-radius: 30px;
+      padding: 40px 30px;
+      border-radius: 25px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
       width: 280px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 30px rgba(100,0,200,0.3);
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(100,0,200,0.3);
     }
 
-    .box h2 {
+    .card h2 {
       color: #5a2ca0;
-      font-size: 28px;
+      font-size: 26px;
       margin-bottom: 20px;
     }
 
-    .box a {
+    .card a {
       display: block;
-      margin: 12px 0;
       font-size: 18px;
+      margin: 12px 0;
       color: #333;
       text-decoration: none;
       transition: 0.3s;
     }
 
-    .box a:hover {
+    .card a:hover {
       color: #5a2ca0;
-      text-shadow: 0 0 8px rgba(150, 50, 250, 0.6);
+      text-shadow: 0 0 10px rgba(150, 50, 250, 0.6);
     }
   </style>
 </head>
@@ -82,14 +83,14 @@
   </header>
 
   <div class="container">
-    <!-- O Levels -->
-    <div class="box">
+    <!-- Cambridge O Levels -->
+    <div class="card">
       <h2>Cambridge O Levels</h2>
       <a href="olevel.html">Mathematics (4024)</a>
     </div>
 
-    <!-- A Levels -->
-    <div class="box">
+    <!-- Edexcel A Levels -->
+    <div class="card">
       <h2>Edexcel A Levels</h2>
       <a href="edexcelmaths.html">Mathematics</a>
       <a href="furthermaths.html">Further Mathematics</a>
