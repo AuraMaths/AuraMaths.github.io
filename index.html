@@ -1,22 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aura Maths</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; background: #f9f9f9; }
-    h1 { color: #6a5acd; }
-    nav a { margin: 0 10px; text-decoration: none; color: #333; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('homepage.png') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .links {
+      position: absolute;
+      bottom: 100px;
+      display: flex;
+      gap: 50px;
+    }
+    .btn {
+      background: rgba(100, 0, 200, 0.8);
+      color: white;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: rgba(150, 50, 250, 1);
+    }
   </style>
 </head>
 <body>
-  <h1>Maths Made Simple ✨</h1>
-  <p>Welcome! This site explains O Level & A Level Maths topics clearly.</p>
-  
-  <nav>
-    <a href="olevel.html">O Level Maths</a>
-    <a href="alevel.html">A Level Maths</a>
-    <a href="further.html">Further Maths</a>
-  </nav>
+  <div class="links">
+    <a href="olevel.html" class="btn">O Levels</a>
+    <a href="alevel.html" class="btn">A Levels</a>
+  </div>
 </body>
 </html>
