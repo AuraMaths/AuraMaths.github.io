@@ -7,51 +7,93 @@
   <style>
     body {
       margin: 0;
-      background: url('homepage.png') no-repeat center center/cover;
-      height: 100vh;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: linear-gradient(135deg, #e9e3ff, #f8f7ff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
 
-    .clickable {
-      position: absolute;
-      cursor: pointer;
+    header {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    header h1 {
+      font-size: 64px;
+      color: #5a2ca0;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 20px;
+      color: #444;
+      margin: 10px 0 40px;
+    }
+
+    .container {
+      display: flex;
+      gap: 60px;
+      margin-top: 40px;
+    }
+
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 280px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .clickable:hover {
+    .box:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(150, 50, 250, 0.7);
-      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(100,0,200,0.3);
     }
 
-    /* Cambridge O Levels text area */
-    #olevel {
-      top: 72%;   /* adjust these values to align with your text */
-      left: 20%;
-      width: 250px;
-      height: 40px;
+    .box h2 {
+      color: #5a2ca0;
+      font-size: 28px;
+      margin-bottom: 20px;
     }
 
-    /* Edexcel Maths text area */
-    #edexcelmaths {
-      top: 72%;
-      left: 50%;
-      width: 200px;
-      height: 40px;
+    .box a {
+      display: block;
+      margin: 12px 0;
+      font-size: 18px;
+      color: #333;
+      text-decoration: none;
+      transition: 0.3s;
     }
 
-    /* Edexcel Further Maths text area */
-    #furthermaths {
-      top: 80%;
-      left: 50%;
-      width: 300px;
-      height: 40px;
+    .box a:hover {
+      color: #5a2ca0;
+      text-shadow: 0 0 8px rgba(150, 50, 250, 0.6);
     }
   </style>
 </head>
 <body>
-  <!-- Transparent clickable links -->
-  <a href="olevel.html" class="clickable" id="olevel"></a>
-  <a href="edexcelmaths.html" class="clickable" id="edexcelmaths"></a>
-  <a href="furthermaths.html" class="clickable" id="furthermaths"></a>
+  <header>
+    <h1>Aura Maths</h1>
+    <p>Helping you love Maths as much as I do 💜</p>
+  </header>
+
+  <div class="container">
+    <!-- O Levels -->
+    <div class="box">
+      <h2>Cambridge O Levels</h2>
+      <a href="olevel.html">Mathematics (4024)</a>
+    </div>
+
+    <!-- A Levels -->
+    <div class="box">
+      <h2>Edexcel A Levels</h2>
+      <a href="edexcelmaths.html">Mathematics</a>
+      <a href="furthermaths.html">Further Mathematics</a>
+    </div>
+  </div>
 </body>
 </html>
