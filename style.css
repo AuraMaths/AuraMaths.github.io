@@ -1,160 +1,26 @@
-/* ========= GRID BACKGROUND ========= */
+/* ==== GRID BACKGROUND ==== */
 body {
   margin: 0;
   height: 100vh;
-  overflow: hidden;
+  background-color: white;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
   font-family: 'Alex Brush', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  position: relative;
+  overflow: hidden;
 }
 
-.grid-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -1;
-}
-
-/* ========= TITLE ========= */
-.title {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 95px;
-  color: #6002B3;
-  text-shadow: 2px 2px 8px rgba(153,90,209,0.3);
-  animation: float 6s ease-in-out infinite alternate;
-}
-
-/* ========= CYLINDER ========= */
-.cylinder-container {
-  position: absolute;
-  top: 50%;
-  left: 65%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.cylinder {
-  position: relative;
-  width: 90px;
-  height: 130px;
-  animation: float 5s ease-in-out infinite alternate;
-}
-
-.cylinder .top {
-  width: 100%;
-  height: 25px;
-  background: #995ad1;
-  border: 2px solid black;
-  border-radius: 50%;
-}
-
-.cylinder .body {
-  width: 100%;
-  height: 100px;
-  background: #771fc5;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  transform: skewX(-10deg);
-}
-
-.arrow {
-  font-family: cursive;
-  font-size: 40px;
-  color: black;
-  transform: rotate(10deg);
-}
-
-.formula {
-  font-size: 30px;
-  color: black;
-  font-weight: bold;
-}
-
-/* ========= BAR CHART ========= */
-.bar-chart {
-  position: absolute;
-  bottom: 10%;
-  left: 20%;
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-}
-
-.bar {
-  width: 35px;
-  border-radius: 10px;
-  animation: rise 2s ease forwards;
-}
-
-.bar.b1 { height: 150px; background: #6002B3; animation-delay: 0.2s; }
-.bar.b2 { height: 120px; background: #771FC5; animation-delay: 0.4s; }
-.bar.b3 { height: 90px; background: #995AD1; animation-delay: 0.6s; }
-.bar.b4 { height: 60px; background: #C195E7; animation-delay: 0.8s; }
-
-@keyframes rise {
-  from { transform: scaleY(0); }
-  to { transform: scaleY(1); }
-}
-
-/* ========= FLOWERS ========= */
-.corner.flower {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  animation: float 6s ease-in-out infinite alternate;
-}
-
-.petal {
-  position: absolute;
-  border-radius: 50%;
-}
-
-.outer {
-  background: #6002B3;
-  width: 120px;
-  height: 120px;
-}
-
-.inner {
-  background: #C195E7;
-  width: 90px;
-  height: 90px;
-}
-
-/* Layout petals */
-.corner.flower .petal:nth-child(1) { top: 20px; left: 50px; }
-.corner.flower .petal:nth-child(2) { top: 50px; left: 20px; }
-.corner.flower .petal:nth-child(3) { top: 50px; left: 80px; }
-
-.corner.flower .petal:nth-child(4) { top: 35px; left: 65px; }
-.corner.flower .petal:nth-child(5) { top: 65px; left: 35px; }
-.corner.flower .petal:nth-child(6) { top: 65px; left: 95px; }
-
-.top-left { top: -40px; left: -40px; transform: rotate(0deg); }
-.bottom-right { bottom: -40px; right: -40px; transform: rotate(180deg); }
-
-/* ========= ANIMATIONS ========= */
-@keyframes float {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
-
-/* ========= RESPONSIVE ========= */
-@media (max-width: 768px) {
-  .title { font-size: 60px; top: 15%; }
-  .cylinder-container { top: 60%; left: 55%; }
-  .bar-chart { left: 10%; bottom: 15%; }
+/* Gentle floating effect for background */
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 40px;
+  }
 }
