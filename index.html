@@ -1,94 +1,43 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aura Maths</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
 <body>
-  <main class="page">
+  <div class="grid-bg"></div>
 
-    <!-- decorative top-left -->
-    <div class="corner top-left" aria-hidden="true">
-      <div class="outer"></div>
-      <div class="inner"></div>
+  <!-- Corner Flowers -->
+  <div class="corner flower top-left">
+    <div class="petal outer"></div>
+    <div class="petal outer"></div>
+    <div class="petal outer"></div>
+    <div class="petal inner"></div>
+    <div class="petal inner"></div>
+    <div class="petal inner"></div>
+  </div>
+
+  <div class="corner flower bottom-right">
+    <div class="petal outer"></div>
+    <div class="petal outer"></div>
+    <div class="petal outer"></div>
+    <div class="petal inner"></div>
+    <div class="petal inner"></div>
+    <div class="petal inner"></div>
+  </div>
+
+  <!-- Title -->
+  <h1 class="title">Aura Maths</h1>
+
+  <!-- Cylinder & Formula -->
+  <div class="cylinder-container">
+    <div class="cylinder">
+      <div class="top"></div>
+      <div class="body"></div>
     </div>
+    <div class="arrow">➜</div>
+    <div class="formula">V = πr²h</div>
+  </div>
 
-    <!-- title highlight (behind title) -->
-    <div class="title-highlight" aria-hidden="true"></div>
-
-    <!-- title -->
-    <h1 class="title">Aura Maths</h1>
-
-    <!-- left bar chart -->
-    <section class="chart" aria-hidden="true">
-      <div class="bars">
-        <div class="bar bar1"><span>Item 1</span></div>
-        <div class="bar bar2"><span>Item 2</span></div>
-        <div class="bar bar3"><span>Item 3</span></div>
-        <div class="bar bar4"><span>Item 4</span></div>
-      </div>
-      <div class="legend">
-        <div class="legend-item"><span class="dot d1"></span><small>Item 1</small></div>
-        <div class="legend-item"><span class="dot d2"></span><small>Item 2</small></div>
-        <div class="legend-item"><span class="dot d3"></span><small>Item 3</small></div>
-        <div class="legend-item"><span class="dot d4"></span><small>Item 4</small></div>
-      </div>
-    </section>
-
-    <!-- left formulas -->
-    <div class="scribble f-left-top">y = mx + c</div>
-    <div class="scribble f-left-mid">|z| = √(x² + y²)</div>
-
-    <!-- center clouds -->
-    <div class="clouds">
-      <div class="cloud cloud-left">
-        <div class="cloud-text">O Levels</div>
-        <div class="cloud-sub">Cambridge:<br>Mathematics syllabus D (4024)</div>
-      </div>
-
-      <div class="cloud cloud-right">
-        <div class="cloud-text">A Levels</div>
-        <div class="cloud-sub">Edexcel: Maths<br>Edexcel: Further maths</div>
-      </div>
-    </div>
-
-    <!-- right visual: cylinder, arrow, formula -->
-    <div class="right-visual" aria-hidden="true">
-      <svg class="cyl" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-        <g transform="rotate(-8 100 110)">
-          <rect x="50" y="50" width="100" height="110" rx="6" fill="#771fc5" stroke="#000" stroke-width="3"/>
-          <ellipse cx="100" cy="50" rx="55" ry="18" fill="#995ad1" stroke="#000" stroke-width="3"/>
-          <!-- cursive base stroke only -->
-          <path d="M50 160 Q100 180 150 160" fill="none" stroke="#000" stroke-width="2.6" stroke-linecap="round"/>
-        </g>
-      </svg>
-
-      <svg class="cyl-arrow" viewBox="0 0 380 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <defs>
-          <marker id="ah" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
-            <polygon points="0 0,12 6,0 12" fill="#000"/>
-          </marker>
-        </defs>
-        <path d="M120 110 C200 10, 300 10, 350 60"
-              fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah)"/>
-      </svg>
-
-      <div class="right-formula"><strong>V = πr²h</strong></div>
-    </div>
-
-    <!-- right scribbles -->
-    <div class="scribble f-right-top">tan⁻¹(x)</div>
-    <div class="scribble f-right-mid">z = r(cosθ + i sin θ)</div>
-    <div class="scribble f-right-bottom">5 + 2i</div>
-
-    <!-- decorative bottom-right -->
-    <div class="corner bottom-right" aria-hidden="true">
-      <div class="outer"></div>
-      <div class="inner"></div>
-    </div>
-
-  </main>
+  <!-- Bar Chart -->
+  <div class="bar-chart">
+    <div class="bar b1"></div>
+    <div class="bar b2"></div>
+    <div class="bar b3"></div>
+    <div class="bar b4"></div>
+  </div>
 </body>
-</html>
