@@ -1,20 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aura Maths</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-<div class="cylinder-container">
-  <div class="cylinder">
-    <div class="top"></div>
-    <div class="body"></div>
-  </div>
-  <div class="arrow">➜</div>
-  <div class="formula"><strong>V = πr²h</strong></div>
-</div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aura Maths</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
-    <div class="title">Aura Maths</div>
+  <main class="page">
+    <!-- decorative top-left "flower" -->
+    <div class="corner-flower top-left" aria-hidden="true">
+      <div class="petal outer"></div>
+      <div class="petal inner"></div>
+    </div>
+
+    <!-- big title -->
+    <h1 class="title">Aura Maths</h1>
+
+    <!-- purple highlight stroke behind title -->
+    <div class="title-highlight" aria-hidden="true"></div>
+
+    <!-- left-side bar chart -->
+    <section class="chart">
+      <div class="bars">
+        <div class="bar b1"><span>Item 1</span></div>
+        <div class="bar b2"><span>Item 2</span></div>
+        <div class="bar b3"><span>Item 3</span></div>
+        <div class="bar b4"><span>Item 4</span></div>
+      </div>
+      <div class="chart-legend">
+        <span class="dot"></span><small>Item 1</small>
+        <span class="dot"></span><small>Item 2</small>
+        <span class="dot"></span><small>Item 3</small>
+        <span class="dot"></span><small>Item 4</small>
+      </div>
+    </section>
+
+    <!-- left formulas -->
+    <div class="formula f-left-top">y = mx + c</div>
+    <div class="formula f-left-mid">|z| = √(x² + y²)</div>
+
+    <!-- center clouds & labels -->
+    <div class="clouds">
+      <div class="cloud cloud-left">
+        <div class="cloud-text">O Levels</div>
+        <div class="cloud-sub">Cambridge:<br>Mathematics syllabus D (4024)</div>
+      </div>
+
+      <div class="cloud cloud-right">
+        <div class="cloud-text">A Levels</div>
+        <div class="cloud-sub">Edexcel: Maths<br>Edexcel: Further maths</div>
+      </div>
+    </div>
+
+    <!-- right cylinder + arrow + formula -->
+    <div class="right-visual">
+      <!-- tilted cylinder -->
+      <svg class="cyl-svg" viewBox="0 0 200 220" aria-hidden="true">
+        <!-- body (curved via transform) -->
+        <g transform="rotate(-8 100 110)">
+          <rect x="50" y="50" width="100" height="110" rx="6" fill="#771fc5" stroke="#000" stroke-width="3"/>
+          <ellipse cx="100" cy="50" rx="55" ry="18" fill="#995ad1" stroke="#000" stroke-width="3"/>
+          <!-- curved bottom (cursive base line only) -->
+          <path d="M50 160 Q100 180 150 160" fill="none" stroke="#000" stroke-width="2.4"/>
+        </g>
+      </svg>
+
+      <!-- arrow -->
+      <svg class="cyl-arrow" viewBox="0 0 380 140" aria-hidden="true">
+        <defs>
+          <marker id="ah" markerWidth="10" markerHeight="10" refX="0" refY="5" orient="auto">
+            <polygon points="0 0, 10 5, 0 10" fill="#000"/>
+          </marker>
+        </defs>
+        <path d="M120 110 C200 10, 300 10, 350 60"
+              fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#ah)"/>
+      </svg>
+
+      <!-- formula -->
+      <div class="formula right-formula"><strong>V = πr²h</strong></div>
+    </div>
+
+    <!-- top-right small formulas and scribbles -->
+    <div class="formula f-right-top">tan⁻¹(x)</div>
+    <div class="formula f-right-mid">z = r(cosθ + i sinθ)</div>
+    <div class="formula f-right-bottom">5 + 2i</div>
+
+    <!-- bottom right "flower" -->
+    <div class="corner-flower bottom-right" aria-hidden="true">
+      <div class="petal outer"></div>
+      <div class="petal inner"></div>
+    </div>
+
+  </main>
 </body>
 </html>
