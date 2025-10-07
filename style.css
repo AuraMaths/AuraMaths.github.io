@@ -1,72 +1,259 @@
-/* === Font Import === */
+/* ---------- Fonts ---------- */
 @font-face {
   font-family: "Alex Brush";
   src: url("AlexBrush-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-/* === Background Grid === */
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
 body {
-  height: 100vh;
-  margin: 0;
-  background-color: #ffffff;
-  background-image:
-    linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px),
-    linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px);
-  background-size: 40px 40px;
-  overflow: hidden;
-  position: relative;
-}
-/* === Title Text === */
-.title {
   font-family: "Alex Brush", cursive;
-  font-size: 95.1px;
-  color: #000000;
-  text-align: center;
-  
-.cylinder-container {
-  position: absolute;
-  top: 45%;
-  left: 30%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  transform: rotate(-5deg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #000;
 }
 
-.cylinder {
+/* ---------- Page + Grid Background ---------- */
+.page {
+  min-height: 100vh;
   position: relative;
-  width: 90px;  /* smaller width */
-  height: 130px; /* smaller height */
+  overflow: hidden;
+  background-color: #ffffff;
+
+  /* graph paper grid lines */
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,0.12) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+  padding: 36px;
 }
 
-.cylinder .top {
+/* ---------- Corner "flower" shapes ---------- */
+.corner-flower {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+}
+.corner-flower .petal.outer {
+  position: absolute;
+  width: 260px;
+  height: 200px;
+  background: #6002b3; /* vivid purple outer */
+  border-radius: 50% 50% 10% 50%;
+  opacity: 1;
+  left: 0; top: 0;
+}
+.corner-flower .petal.inner {
+  position: absolute;
+  width: 180px;
+  height: 140px;
+  background: rgba(153,90,209,0.95); /* lavender inner */
+  border-radius: 50% 50% 10% 50%;
+  left: 42px; top: 28px;
+}
+
+/* positionings */
+.top-left { left: -28px; top: -40px; transform: scale(0.9); }
+.bottom-right { right: -24px; bottom: -20px; transform: scale(1.05) rotate(10deg); }
+
+/* ---------- Title + highlight ---------- */
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 36%;
+  font-size: clamp(48px, 9vw, 120px);
+  line-height: 0.9;
+  color: #000;
+  z-index: 10;
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+
+/* highlight bar under the title (pastel lavender) */
+.title-highlight {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  top: calc(36% + 36px);
+  width: min(72%, 900px);
+  height: 28px;
+  background: rgba(193,149,231,0.9); /* pastel lavender (#c195e7) */
+  border-radius: 20px;
+  z-index: 9;
+  opacity: 0.95;
+  filter: blur(0.3px);
+}
+
+/* ---------- Chart (left) ---------- */
+.chart {
+  position: absolute;
+  left: 48px;
+  bottom: 110px;
+  width: 240px;
+  z-index: 6;
+}
+.bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 160px;
+  gap: 10px;
+  padding-bottom: 12px;
+  background: transparent;
+}
+.bar {
+  width: 38px;
+  border-radius: 6px 6px 4px 4px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+.bar span {
+  position: absolute;
+  bottom: -22px;
+  font-family: "Alex Brush", cursive;
+  font-size: 12px;
+  color: #000;
+}
+
+/* specific colors (left to right smallest->tallest) */
+.b1 { height: 60px; background: #c195e7; }   /* pastel lavender */
+.b2 { height: 110px; background: #995ad1; }  /* lavender */
+.b3 { height: 146px; background: #771fc5; }  /* purple */
+.b4 { height: 180px; background: #6002b3; }  /* vivid purple */
+
+/* small legend dots above */
+.chart-legend {
+  display:flex;
+  gap:18px;
+  align-items:center;
+  margin-top:8px;
+  font-family: "Alex Brush", cursive;
+  font-size: 10px;
+  color: #333;
+}
+.chart-legend .dot { width:10px; height:10px; border-radius:50%; background:#c195e7; display:inline-block; margin-right:6px; }
+
+/* ---------- center clouds ---------- */
+.clouds {
+  position: absolute;
   width: 100%;
-  height: 25px;
-  background: #995ad1;
-  border: 2px solid black;
+  display:flex;
+  justify-content:center;
+  gap: 120px;
+  top: 56%;
+  transform: translateY(-8%);
+  z-index: 6;
+}
+.cloud {
+  position: relative;
+  width: 260px;
+  height: 110px;
+  background: rgba(153,90,209,0.92); /* lavender with low transparency */
+  border-radius: 60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.04);
+  border: 2px solid rgba(0,0,0,0.06);
+}
+.cloud::before, .cloud::after {
+  content: "";
+  position: absolute;
+  background: rgba(153,90,209,0.92);
   border-radius: 50%;
 }
+.cloud::before { width:120px; height:60px; left:-28px; top:10px; }
+.cloud::after  { width:110px; height:70px; right:-28px; top:10px; }
 
-.cylinder .body {
-  width: 100%;
-  height: 100px;
-  background: #771fc5;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  transform: skewX(-10deg); /* makes base look cursive/tilted */
-  border-bottom: none; /* remove flat base line */
+/* cloud text */
+.cloud-text {
+  font-size: clamp(22px, 4vw, 36px);
+  color: #000;
+  text-align:center;
+}
+.cloud-sub {
+  margin-top:6px;
+  font-size: clamp(12px, 2.2vw, 16px);
+  text-align:center;
+  color: rgba(0,0,0,0.85);
+  backdrop-filter: blur(2px);
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(193,149,231,0.85); /* pastel highlight behind text */
 }
 
-.arrow {
-  font-family: cursive;
-  font-size: 40px; /* smaller arrow */
-  transform: rotate(10deg);
-  color: black;
+/* ---------- right visual block (cylinder, arrow, formula) ---------- */
+.right-visual {
+  position: absolute;
+  right: 6%;
+  top: 12%;
+  display:flex;
+  align-items:center;
+  gap: 8px;
+  z-index: 8;
+  transform-origin: center;
 }
-
-.formula {
-  font-family: 'Amsterdam', cursive;
+.cyl-svg { width: 140px; height: 170px; display:block; }
+.cyl-arrow { width: 270px; height: 120px; display:block; overflow:visible; transform: translateY(6px); }
+.right-formula {
   font-size: 30.3px;
-  font-weight: bold;
-  color: black;
+  font-weight: 700;
+  margin-left: -8px;
+  transform: rotate(-4deg);
 }
 
+/* ---------- floating animation for subtle life (sync) ---------- */
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+.right-visual, .cylinder-block, .cyl-svg { animation: floaty 4.5s ease-in-out infinite; }
+
+/* ---------- scattered formulas & scribbles ---------- */
+.formula {
+  position: absolute;
+  font-size: clamp(14px, 2.3vw, 26px);
+  color: #000;
+  transform: rotate(-6deg);
+  z-index: 7;
+}
+.f-left-top { left: 18%; top: 14%; transform: rotate(-8deg) scale(1.05); }
+.f-left-mid { left: 8%; top: 36%; transform: rotate(-6deg); }
+.f-right-top { right: 18%; top: 6%; transform: rotate(-10deg) }
+.f-right-mid { right: 10%; top: 28%; transform: rotate(6deg); font-size: clamp(16px, 2.6vw, 28px); }
+.f-right-bottom { right: 12%; top: 46%; transform: rotate(-6deg); font-size: clamp(12px, 2.2vw, 24px); }
+
+/* ---------- responsiveness ---------- */
+@media (max-width: 1000px) {
+  .top-left { transform: scale(0.75); left:-40px; top:-30px; }
+  .bottom-right { transform: scale(0.9) rotate(8deg); right:-10px; bottom:-6px; }
+  .chart { left: 16px; bottom: 90px; transform: scale(0.9); }
+  .clouds { gap: 40px; top: 62%; }
+  .title { top: 30%; font-size: clamp(44px, 9.6vw, 96px); }
+  .title-highlight { top: calc(30% + 36px); width: 80%; }
+  .right-visual { right: 5%; top: 8%; transform: scale(0.95); }
+}
+@media (max-width: 540px) {
+  .page { padding: 14px; background-size: 32px 32px; }
+  .title { top: 28%; font-size: clamp(36px, 12.5vw, 60px); }
+  .title-highlight { top: calc(28% + 30px); height: 22px; }
+  .clouds { top: 68%; transform: translateY(-6%); gap: 30px; }
+  .cloud { width: 200px; height: 90px; }
+  .cyl-svg { width: 110px; height: 140px; }
+  .cyl-arrow { width: 160px; transform: translateY(6px) scale(0.85); }
+  .right-formula { font-size: 24px; }
+  .chart { display:none; } /* hide chart on very small screens to prevent clutter */
+  .top-left, .bottom-right { display:none; }
+  .f-left-top, .f-left-mid { display:none; }
+  .f-right-top, .f-right-mid, .f-right-bottom { right: 6%; top: auto; transform: none; position: relative; display: block; margin: 6px 0; }
+}
