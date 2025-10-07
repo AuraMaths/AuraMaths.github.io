@@ -1,7 +1,7 @@
 /* === Font Import === */
 @font-face {
   font-family: "Alex Brush";
-  src: url("AlexBrush-Regular[1].ttf") format("truetype");
+  src: url("AlexBrush-Regular.ttf") format("truetype");
 }
 /* === Background Grid === */
 body {
