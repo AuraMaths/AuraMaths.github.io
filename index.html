@@ -6,36 +6,14 @@
     <title>Aura Maths</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-<!-- Floating Cylinder + Arrow + Formula (Updated) -->
-<div class="cylinder-block" aria-hidden="true">
-  <!-- Cylinder SVG -->
-  <svg class="cyl-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-    <!-- body -->
-    <rect x="40" y="40" width="120" height="120" fill="#771fc5" stroke="#000" stroke-width="3" />
-    <!-- top ellipse -->
-    <ellipse cx="100" cy="40" rx="60" ry="20" fill="#995ad1" stroke="#000" stroke-width="3" />
-  </svg>
-
-  <!-- Arrow SVG -->
-  <svg class="arrow-svg" viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <defs>
-      <marker id="arrowHead" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
-        <polygon points="0 0, 12 6, 0 12" fill="#000"/>
-      </marker>
-    </defs>
-    <path d="M 120 110 C 200 10, 340 10, 420 80"
-          fill="none"
-          stroke="#000"
-          stroke-width="8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          marker-end="url(#arrowHead)"/>
-  </svg>
-
-  <!-- Formula text -->
-  <div class="formula-text"><strong>V = πr²h</strong></div>
+<div class="cylinder-container">
+  <div class="cylinder">
+    <div class="top"></div>
+    <div class="body"></div>
+  </div>
+  <div class="arrow">➜</div>
+  <div class="formula"><strong>V = πr²h</strong></div>
 </div>
-
 <body>
     <div class="title">Aura Maths</div>
 </body>
