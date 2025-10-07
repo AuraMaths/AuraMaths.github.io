@@ -1,7 +1,7 @@
 /* === Font Import === */
 @font-face {
   font-family: "Alex Brush";
-  src: url("fonts/AlexBrush-Regular.ttf") format("truetype");
+  src: url("AlexBrush-Regular[1].ttf") format("truetype");
 }
 /* === Background Grid === */
 body {
@@ -24,11 +24,6 @@ body {
 
   position: absolute;
   top: 27%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-  top: 40%; /* less distance from top */
   left: 50%;
   transform: translate(-50%, -50%);
 }
