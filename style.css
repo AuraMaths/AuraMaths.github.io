@@ -21,6 +21,60 @@ body {
   font-size: 95.1px;
   color: #000000;
   text-align: center;
+/* === Cylinder === */
+.cylinder {
+  position: absolute;
+  right: 10%;
+  top: 15%;
+  width: 100px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floaty 3.5s ease-in-out infinite;
+}
+
+.cylinder-top, .cylinder-bottom {
+  width: 100%;
+  height: 25px;
+  background: radial-gradient(circle at center, #a060ff 0%, #6b00ff 100%);
+  border-radius: 50%;
+}
+
+.cylinder-body {
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(180deg, #8e3cff 0%, #5800c7 100%);
+}
+
+.cylinder-arrow {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  font-size: 30px;
+  color: #4b00b3;
+  transform: rotate(30deg);
+  animation: spinArrow 5s linear infinite;
+}
+
+.formula {
+  position: absolute;
+  bottom: -40px;
+  color: black;
+  font-family: "Alex Brush", cursive;
+  font-size: 26px;
+}
+
+/* === Animations === */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spinArrow {
+  0% { transform: rotate(30deg); }
+  100% { transform: rotate(390deg); }
+}
 
   position: absolute;
   top: 27%;
