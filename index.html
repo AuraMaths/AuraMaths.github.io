@@ -6,28 +6,40 @@
     <title>Aura Maths</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-<body>
-    <div class="title">Aura Maths</div>
-  <div class="cylinder-container">
-  <svg class="cylinder" width="150" height="200" viewBox="0 0 150 200">
-    <!-- Top ellipse -->
-    <ellipse cx="75" cy="40" rx="50" ry="20" fill="#995ad1" stroke="black" stroke-width="2" />
-    <!-- Side body -->
-    <rect x="25" y="40" width="100" height="120" fill="#771fc5" stroke="black" stroke-width="2" />
-    <!-- Bottom ellipse (hidden behind, so slightly darker) -->
-    <ellipse cx="75" cy="160" rx="50" ry="20" fill="#771fc5" stroke="black" stroke-width="2" />
+<!-- Floating Cylinder + Arrow + Formula -->
+<div class="cylinder-block" aria-hidden="true">
+  <!-- Cylinder SVG (bottom ellipse drawn first so it sits behind the body) -->
+  <svg class="cyl-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <!-- bottom ellipse (behind) -->
+    <ellipse cx="100" cy="170" rx="60" ry="18" fill="#995ad1" stroke="#000" stroke-width="3"/>
+    <!-- body -->
+    <rect x="40" y="40" width="120" height="120" fill="#771fc5" stroke="#000" stroke-width="3" rx="0" ry="0"/>
+    <!-- top ellipse (on top) -->
+    <ellipse cx="100" cy="40" rx="60" ry="20" fill="#995ad1" stroke="#000" stroke-width="3"/>
   </svg>
 
-  <div class="formula">V = πr²h</div>
-
-  <svg class="arrow" width="200" height="100" viewBox="0 0 200 100">
-    <path d="M 10 80 Q 100 10 190 40" stroke="black" stroke-width="3" fill="transparent" marker-end="url(#arrowhead)" />
+  <!-- Arrow SVG: tail near the cylinder, head near the formula -->
+  <svg class="arrow-svg" viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
     <defs>
-      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+      <marker id="arrowHead" markerWidth="12" markerHeight="12" refX="0" refY="6" orient="auto">
+        <polygon points="0 0, 12 6, 0 12" fill="#000"/>
       </marker>
     </defs>
+
+    <!-- A smooth cursive-like path: starts near cylinder, curves, ends toward formula -->
+    <path d="M 120 110 C 200 10, 340 10, 420 80"
+          fill="none"
+          stroke="#000"
+          stroke-width="8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          marker-end="url(#arrowHead)"/>
   </svg>
+
+  <!-- Formula (text) -->
+  <div class="formula-text">V = πr²h</div>
 </div>
+<body>
+    <div class="title">Aura Maths</div>
 </body>
 </html>
