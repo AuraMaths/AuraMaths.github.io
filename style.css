@@ -22,50 +22,52 @@ body {
   color: #000000;
   text-align: center;
 }
-/* ---------- Floating Cylinder + Arrow + Formula ---------- */
+/* ---------- Floating Cylinder + Arrow + Formula (Tilted) ---------- */
 .cylinder-block {
   position: absolute;
-  top: 14%;         /* move this up/down to match your Canva layout */
-  right: 8%;        /* move this left/right to match your Canva layout */
-  width: 520px;     /* total width for svg + arrow + formula area */
+  top: 14%;
+  right: 8%;
+  width: 520px;
   height: 220px;
   display: flex;
   align-items: center;
   gap: 18px;
-  pointer-events: none;   /* decorative only */
+  pointer-events: none;
   z-index: 20;
   animation: floaty 4s ease-in-out infinite;
   transform-origin: center;
 }
 
-/* Cylinder size */
+/* Tilted cylinder */
 .cyl-svg {
   width: 200px;
   height: 220px;
   flex: 0 0 200px;
   display: block;
-  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.08)); /* subtle depth */
+  transform: rotate(-8deg) skewX(-5deg); /* tilt bottom-left to top-right */
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.1));
 }
 
-/* Arrow sits to the right of cylinder */
+/* Arrow */
 .arrow-svg {
   width: 260px;
   height: 140px;
   flex: 0 0 260px;
   display: block;
   overflow: visible;
-  /* make the line feel hand-drawn: round stroke caps are already set on path */
 }
 
-/* Formula text placed to the right (aligned with arrow head) */
+/* Formula */
 .formula-text {
-  font-family: "Amsterdam", "Alex Brush", cursive; /* Amsterdam preferred; falls back to Alex Brush */
+  font-family: "Amsterdam", "Alex Brush", cursive;
   font-size: 30.3px;
   color: #000;
-  margin-left: -20px;             /* nudges the formula closer to the arrow head */
+  font-weight: 700; /* bold */
+  margin-left: -20px;
   white-space: nowrap;
   flex: 1 1 auto;
   align-self: center;
+  transform: rotate(-5deg); /* slight cursive tilt */
 }
 
 /* Float animation */
@@ -75,17 +77,5 @@ body {
   100% { transform: translateY(0px); }
 }
 
-/* Responsive tweaks */
-@media (max-width: 880px) {
-  .cylinder-block { transform: scale(0.9); right: 6%; top: 12%; width: 440px; }
-  .cyl-svg { width: 170px; height: 190px; }
-  .arrow-svg { width: 210px; }
-  .formula-text { font-size: 28px; margin-left: -12px; }
-}
-@media (max-width: 520px) {
-  .cylinder-block { position: relative; right: auto; top: auto; margin: 36px auto; transform: scale(0.8); display: block; width: fit-content; }
-  .cyl-svg { display: block; margin: 0 auto; }
-  .arrow-svg { display: block; margin: 8px auto; }
-  .formula-text { display: block; text-align: center; margin: 8px auto 0 auto; }
 }
 
