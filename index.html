@@ -4,41 +4,62 @@
     <meta charset="UTF-8">
     <title>Aura Maths</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Alex Brush font already loaded as AlexBrush-Regular.ttf via CSS -->
-    <!-- Amsterdam One font assumed available as AmsterdamOne.ttf via CSS -->
     <meta name="viewport" content="width=1366, initial-scale=1">
 </head>
 <body>
     <div class="background-grid"></div>
 
+    <!-- Flower Corners (SVG for better visuals) -->
+    <div class="flower flower-top-left">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+            <!-- Outer petals -->
+            <ellipse cx="40" cy="20" rx="22" ry="13" fill="#6002b3"/>
+            <ellipse cx="20" cy="40" rx="13" ry="22" fill="#6002b3"/>
+            <ellipse cx="40" cy="60" rx="22" ry="13" fill="#6002b3"/>
+            <ellipse cx="60" cy="40" rx="13" ry="22" fill="#6002b3"/>
+            <!-- Inner petal -->
+            <ellipse cx="40" cy="40" rx="15" ry="15" fill="#995ad1"/>
+        </svg>
+    </div>
+    <div class="flower flower-bottom-right">
+        <svg width="80" height="80" viewBox="0 0 80 80">
+            <!-- Outer petals -->
+            <ellipse cx="40" cy="20" rx="22" ry="13" fill="#6002b3"/>
+            <ellipse cx="20" cy="40" rx="13" ry="22" fill="#6002b3"/>
+            <ellipse cx="40" cy="60" rx="22" ry="13" fill="#6002b3"/>
+            <ellipse cx="60" cy="40" rx="13" ry="22" fill="#6002b3"/>
+            <!-- Inner petal -->
+            <ellipse cx="40" cy="40" rx="15" ry="15" fill="#995ad1"/>
+        </svg>
+    </div>
+
     <!-- Decorative Clouds -->
     <div class="cloud cloud-top-left"></div>
     <div class="cloud cloud-bottom-right"></div>
 
-    <!-- Top Left Flower Decoration -->
-    <div class="flower flower-top-left">
-        <div class="petal outer"></div>
-        <div class="petal inner"></div>
-    </div>
-    <!-- Bottom Right Flower Decoration -->
-    <div class="flower flower-bottom-right">
-        <div class="petal outer"></div>
-        <div class="petal inner"></div>
-    </div>
-
-    <!-- Cylinder and Arrow -->
+    <!-- Cylinder and Arrow (SVG for reliability) -->
     <div class="cylinder-container">
-        <canvas id="cylinder" width="110" height="160"></canvas>
-        <canvas id="arrow" width="100" height="80"></canvas>
+        <svg id="cylinder" width="110" height="160">
+            <!-- Top ellipse -->
+            <ellipse cx="55" cy="32" rx="45" ry="20" fill="#995ad1" stroke="#000" stroke-width="2.5"/>
+            <!-- Side -->
+            <path d="M10,32 L10,120 Q10,150 100,120 L100,32" fill="#771fc5" stroke="#000" stroke-width="2.5"/>
+            <!-- Bottom ellipse -->
+            <ellipse cx="55" cy="120" rx="45" ry="20" fill="#771fc5" stroke="#000" stroke-width="2.5"/>
+        </svg>
+        <svg id="arrow" width="100" height="80">
+            <path d="M90,15 C60,50 40,55 20,50" stroke="#000" stroke-width="3" fill="none"/>
+            <polygon points="20,50 10,43 16,50 10,57" fill="#000"/>
+        </svg>
     </div>
 
-    <!-- Math Formulas -->
+    <!-- Math Formulas (adjusted positions to avoid overlap) -->
     <div class="formulas">
         <span class="formula" style="left: 120px; top: 90px;">y = mx + c</span>
         <span class="formula" style="left: 320px; top: 110px;">ax³ + bx² + cx + d</span>
         <span class="formula" style="left: 740px; top: 70px;">tan⁻¹(x)</span>
-        <span class="formula" style="left: 960px; top: 170px;">v = π r² h</span>
-        <span class="formula" style="left: 790px; top: 250px;">z = r(cos θ + i sin θ)</span>
+        <span class="formula" style="left: 1000px; top: 80px;">v = π r² h</span>
+        <span class="formula" style="left: 780px; top: 320px;">z = r(cos θ + i sin θ)</span>
         <span class="formula" style="left: 100px; top: 320px;">|z| = √(x² + y²)</span>
         <span class="formula" style="left: 1150px; top: 350px;">5 + 2i</span>
         <span class="formula" style="left: 1200px; top: 400px;">{1, 2, 3, ... ∞}</span>
@@ -50,7 +71,7 @@
         Aura Maths
     </div>
 
-    <!-- Bar Chart -->
+    <!-- Bar Chart (legend removed, axes adjusted) -->
     <div class="bar-chart">
         <div class="bars">
             <div class="bar bar1"></div>
@@ -64,80 +85,23 @@
             <span class="bar-label" style="left: 155px;">Item 3</span>
             <span class="bar-label" style="left: 225px;">Item 4</span>
         </div>
-        <div class="legend">
-            <span class="legend-dot legend1"></span> Item 1
-            <span class="legend-dot legend2"></span> Item 2
-            <span class="legend-dot legend3"></span> Item 3
-            <span class="legend-dot legend4"></span> Item 4
-        </div>
         <div class="y-axis">0</div>
         <div class="y-axis-top">20</div>
     </div>
 
-    <!-- Interactive Clouds with Texts -->
+    <!-- Interactive Clouds with Correct Interactive Texts -->
     <div class="cloud-text cloud-olevels">
-        <a href="#" class="interactive">O Levels</a>
-        <div class="syllabus">Cambridge Mathematics Syllabus D (4024)</div>
-    </div>
-    <div class="cloud-text cloud-alevels">
-        <a href="#" class="interactive">A Levels</a>
+        O Levels
         <div class="syllabus">
-            Edexcel: Maths<br>
-            Edexcel: Further maths
+            <a href="#" class="interactive">Cambridge Mathematics Syllabus D (4024)</a>
         </div>
     </div>
-<script>
-window.onload = function() {
-    // Cylinder
-    const ctx = document.getElementById('cylinder').getContext('2d');
-    // Top ellipse
-    ctx.beginPath();
-    ctx.ellipse(55, 32, 45, 20, 0, 0, 2 * Math.PI);
-    ctx.fillStyle = "#995ad1";
-    ctx.fill();
-    ctx.lineWidth = 2.5;
-    ctx.strokeStyle = "#000";
-    ctx.stroke();
-    // Side
-    ctx.beginPath();
-    ctx.moveTo(10, 32);
-    ctx.lineTo(10, 120);
-    ctx.bezierCurveTo(10, 150, 100, 150, 100, 120);
-    ctx.lineTo(100, 32);
-    ctx.strokeStyle = "#000";
-    ctx.lineWidth = 2.5;
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.ellipse(55, 120, 45, 20, 0, 0, Math.PI, true);
-    ctx.fillStyle = "#771fc5";
-    ctx.fill();
-    ctx.lineWidth = 2.5;
-    ctx.strokeStyle = "#000";
-    ctx.stroke();
-
-    // Arrow
-    const ctx2 = document.getElementById('arrow').getContext('2d');
-    ctx2.beginPath();
-    ctx2.moveTo(90, 15);
-    ctx2.bezierCurveTo(60, 50, 40, 55, 20, 50);
-    ctx2.lineWidth = 3;
-    ctx2.strokeStyle = "#000";
-    ctx2.setLineDash([0]);
-    ctx2.stroke();
-    // Arrow head
-    ctx2.save();
-    ctx2.translate(20, 50);
-    ctx2.rotate(-0.2);
-    ctx2.beginPath();
-    ctx2.moveTo(0, 0);
-    ctx2.lineTo(-10, -7);
-    ctx2.lineTo(-4, 0);
-    ctx2.lineTo(-10, 7);
-    ctx2.closePath();
-    ctx2.fillStyle = "#000";
-    ctx2.fill();
-    ctx2.restore();
-};
-</script>
+    <div class="cloud-text cloud-alevels">
+        A Levels
+        <div class="syllabus">
+            <a href="#" class="interactive">Edexcel: Maths</a><br>
+            <a href="#" class="interactive">Edexcel: Further maths</a>
+        </div>
+    </div>
 </body>
 </html>
