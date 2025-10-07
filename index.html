@@ -1,43 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aura Maths</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Alex Brush font already loaded as AlexBrush-Regular.ttf via CSS -->
+    <!-- Amsterdam One font assumed available as AmsterdamOne.ttf via CSS -->
+    <meta name="viewport" content="width=1366, initial-scale=1">
+</head>
 <body>
-  <div class="grid-bg"></div>
+    <div class="background-grid"></div>
 
-  <!-- Corner Flowers -->
-  <div class="corner flower top-left">
-    <div class="petal outer"></div>
-    <div class="petal outer"></div>
-    <div class="petal outer"></div>
-    <div class="petal inner"></div>
-    <div class="petal inner"></div>
-    <div class="petal inner"></div>
-  </div>
+    <!-- Decorative Clouds -->
+    <div class="cloud cloud-top-left"></div>
+    <div class="cloud cloud-bottom-right"></div>
 
-  <div class="corner flower bottom-right">
-    <div class="petal outer"></div>
-    <div class="petal outer"></div>
-    <div class="petal outer"></div>
-    <div class="petal inner"></div>
-    <div class="petal inner"></div>
-    <div class="petal inner"></div>
-  </div>
-
-  <!-- Title -->
-  <h1 class="title">Aura Maths</h1>
-
-  <!-- Cylinder & Formula -->
-  <div class="cylinder-container">
-    <div class="cylinder">
-      <div class="top"></div>
-      <div class="body"></div>
+    <!-- Top Left Flower Decoration -->
+    <div class="flower flower-top-left">
+        <div class="petal outer"></div>
+        <div class="petal inner"></div>
     </div>
-    <div class="arrow">➜</div>
-    <div class="formula">V = πr²h</div>
-  </div>
+    <!-- Bottom Right Flower Decoration -->
+    <div class="flower flower-bottom-right">
+        <div class="petal outer"></div>
+        <div class="petal inner"></div>
+    </div>
 
-  <!-- Bar Chart -->
-  <div class="bar-chart">
-    <div class="bar b1"></div>
-    <div class="bar b2"></div>
-    <div class="bar b3"></div>
-    <div class="bar b4"></div>
-  </div>
+    <!-- Cylinder and Arrow -->
+    <div class="cylinder-container">
+        <canvas id="cylinder" width="110" height="160"></canvas>
+        <canvas id="arrow" width="100" height="80"></canvas>
+    </div>
+
+    <!-- Math Formulas -->
+    <div class="formulas">
+        <span class="formula" style="left: 120px; top: 90px;">y = mx + c</span>
+        <span class="formula" style="left: 320px; top: 110px;">ax³ + bx² + cx + d</span>
+        <span class="formula" style="left: 740px; top: 70px;">tan⁻¹(x)</span>
+        <span class="formula" style="left: 960px; top: 170px;">v = π r² h</span>
+        <span class="formula" style="left: 790px; top: 250px;">z = r(cos θ + i sin θ)</span>
+        <span class="formula" style="left: 100px; top: 320px;">|z| = √(x² + y²)</span>
+        <span class="formula" style="left: 1150px; top: 350px;">5 + 2i</span>
+        <span class="formula" style="left: 1200px; top: 400px;">{1, 2, 3, ... ∞}</span>
+    </div>
+
+    <!-- Main Title -->
+    <div class="main-title">
+        <span class="highlight"></span>
+        Aura Maths
+    </div>
+
+    <!-- Bar Chart -->
+    <div class="bar-chart">
+        <div class="bars">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+        </div>
+        <div class="labels">
+            <span class="bar-label" style="left: 15px;">Item 1</span>
+            <span class="bar-label" style="left: 85px;">Item 2</span>
+            <span class="bar-label" style="left: 155px;">Item 3</span>
+            <span class="bar-label" style="left: 225px;">Item 4</span>
+        </div>
+        <div class="legend">
+            <span class="legend-dot legend1"></span> Item 1
+            <span class="legend-dot legend2"></span> Item 2
+            <span class="legend-dot legend3"></span> Item 3
+            <span class="legend-dot legend4"></span> Item 4
+        </div>
+        <div class="y-axis">0</div>
+        <div class="y-axis-top">20</div>
+    </div>
+
+    <!-- Interactive Clouds with Texts -->
+    <div class="cloud-text cloud-olevels">
+        <a href="#" class="interactive">O Levels</a>
+        <div class="syllabus">Cambridge Mathematics Syllabus D (4024)</div>
+    </div>
+    <div class="cloud-text cloud-alevels">
+        <a href="#" class="interactive">A Levels</a>
+        <div class="syllabus">
+            Edexcel: Maths<br>
+            Edexcel: Further maths
+        </div>
+    </div>
 </body>
+</html>
