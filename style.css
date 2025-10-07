@@ -49,30 +49,17 @@ body {
     background: rgba(119, 31, 197, 0.3);
 }
 
-/* Flowers */
+/* SVG Flowers */
 .flower {
     position: absolute;
     z-index: 10;
+    width: 80px; height: 80px;
 }
 .flower-top-left {
-    left: 30px; top: 30px;
+    left: 10px; top: 10px;
 }
 .flower-bottom-right {
-    right: 40px; bottom: 40px;
-}
-.petal.outer {
-    width: 50px; height: 50px;
-    background: #6002b3; /* vivid purple */
-    border-radius: 50%;
-    position: absolute;
-    left: 0; top: 0;
-}
-.petal.inner {
-    width: 30px; height: 30px;
-    background: #995ad1; /* lavender */
-    border-radius: 50%;
-    position: absolute;
-    left: 10px; top: 10px;
+    right: 10px; bottom: 10px;
 }
 
 /* Cylinder */
@@ -176,24 +163,6 @@ body {
 .bar-label:nth-child(2) { left: 85px; }
 .bar-label:nth-child(3) { left: 155px; }
 .bar-label:nth-child(4) { left: 225px; }
-.legend {
-    position: absolute;
-    top: 0; left: 0;
-    font-size: 15px;
-    color: #444;
-    letter-spacing: 1px;
-}
-.legend-dot {
-    width: 11px; height: 11px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px 0 17px;
-    vertical-align: middle;
-}
-.legend1 { background: #c195e7; }
-.legend2 { background: #995ad1; }
-.legend3 { background: #771fc5; }
-.legend4 { background: #6002b3; }
 .y-axis {
     position: absolute;
     left: 0; bottom: 0;
@@ -215,30 +184,16 @@ body {
     text-align: center;
     z-index: 40;
     border: 2px solid #995ad1;
+    font-size: 31px;
+    font-family: 'Alex Brush', cursive;
+    color: #222;
+    padding-top: 9px;
 }
 .cloud-olevels {
     left: 370px; top: 410px;
 }
 .cloud-alevels {
     left: 870px; top: 410px;
-}
-.cloud-text .interactive {
-    display: block;
-    margin-top: 25px;
-    font-family: 'Alex Brush', cursive;
-    font-size: 40px;
-    color: #222;
-    text-decoration: none;
-    transition: color 0.2s;
-    cursor: pointer;
-    background: #c195e7;
-    border-radius: 10px;
-    padding: 0 8px;
-    box-shadow: 0 2px 8px rgba(153, 90, 209, 0.11);
-}
-.cloud-text .interactive:hover {
-    color: #771fc5;
-    background: #e0d2ee;
 }
 .cloud-text .syllabus {
     font-family: 'Arial', sans-serif;
@@ -249,7 +204,25 @@ body {
     border-radius: 9px;
     padding: 2px 8px;
     display: inline-block;
-    opacity: 0.85;
+    opacity: 0.95;
+}
+.cloud-text .interactive {
+    font-family: 'Alex Brush', cursive;
+    font-size: 27px;
+    color: #222;
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+    background: #c195e7;
+    border-radius: 8px;
+    padding: 0 8px;
+    box-shadow: 0 2px 8px rgba(153, 90, 209, 0.13);
+    margin: 2px 0;
+    display: inline-block;
+}
+.cloud-text .interactive:hover {
+    color: #771fc5;
+    background: #e0d2ee;
 }
 
 @media (max-width: 1200px) {
@@ -260,7 +233,7 @@ body {
     .cloud-alevels { left: 600px; top: 390px; }
 }
 
-/* Custom Cylinder via Canvas */
+/* Custom Cylinder via SVG */
 #cylinder {
     background: transparent;
 }
