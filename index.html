@@ -86,5 +86,58 @@
             Edexcel: Further maths
         </div>
     </div>
+<script>
+window.onload = function() {
+    // Cylinder
+    const ctx = document.getElementById('cylinder').getContext('2d');
+    // Top ellipse
+    ctx.beginPath();
+    ctx.ellipse(55, 32, 45, 20, 0, 0, 2 * Math.PI);
+    ctx.fillStyle = "#995ad1";
+    ctx.fill();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+    // Side
+    ctx.beginPath();
+    ctx.moveTo(10, 32);
+    ctx.lineTo(10, 120);
+    ctx.bezierCurveTo(10, 150, 100, 150, 100, 120);
+    ctx.lineTo(100, 32);
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(55, 120, 45, 20, 0, 0, Math.PI, true);
+    ctx.fillStyle = "#771fc5";
+    ctx.fill();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = "#000";
+    ctx.stroke();
+
+    // Arrow
+    const ctx2 = document.getElementById('arrow').getContext('2d');
+    ctx2.beginPath();
+    ctx2.moveTo(90, 15);
+    ctx2.bezierCurveTo(60, 50, 40, 55, 20, 50);
+    ctx2.lineWidth = 3;
+    ctx2.strokeStyle = "#000";
+    ctx2.setLineDash([0]);
+    ctx2.stroke();
+    // Arrow head
+    ctx2.save();
+    ctx2.translate(20, 50);
+    ctx2.rotate(-0.2);
+    ctx2.beginPath();
+    ctx2.moveTo(0, 0);
+    ctx2.lineTo(-10, -7);
+    ctx2.lineTo(-4, 0);
+    ctx2.lineTo(-10, 7);
+    ctx2.closePath();
+    ctx2.fillStyle = "#000";
+    ctx2.fill();
+    ctx2.restore();
+};
+</script>
 </body>
 </html>
